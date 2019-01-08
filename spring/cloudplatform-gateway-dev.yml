@@ -1,0 +1,72 @@
+spring:
+  rabbitmq:
+    host: 192.168.1.241
+    port: 5672
+    username: guest
+    password: guest
+  http:
+    multipart:
+      file-size-threshold: 1Mb
+      max-file-size: 1000Mb
+      max-request-size: 1000Mb
+  zipkin:
+    base-url: http://localhost:9411
+zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+   #开启全局重试机制
+  retryable: true
+  servelt-path: /
+  routes:
+    service:
+      path: /test/**
+      strip-prefix: true
+      sensitiveHeaders:
+      serviceId: cloudplatform-service
+    auth:
+      path: /auth/**
+      strip-prefix: true
+      sensitiveHeaders:
+      serviceId: cloudplatform-auth
+    upms:
+      path: /upms/**
+      strip-prefix: true
+      sensitiveHeaders:
+      serviceId: cloudplatform-upms
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+#     client-id: webApp
+#     client-secret: webApp
+      access-token-uri: http://192.168.1.241:9091/auth/oauth/token    #网关的地址
+      user-authorization-uri: http://192.168.1.241:9091/auth/oauth/authorize
+    resource:
+      user-info-uri:  http://192.168.1.241:9092/user
+      prefer-token-info: false
+
+cloudplatform-service-local:
+#设置ribbon的请求超时时间，大文件上传必须调高此时间
+  ribbon:
+    ConnectTimeout: 60000
+    ReadTimeout: 20000
+    #同一个Server重试的次数(除去首次)
+    MaxAutoRetries: 3
+    #切换到不同Server的次数
+    MaxAutoRetriesNextServer: 3
+    #对所有方法进行重试
+    okToRetryOnAllOperations: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+#启动feign熔断器功能
+feign:
+  hystrix:
+    enabled: true
