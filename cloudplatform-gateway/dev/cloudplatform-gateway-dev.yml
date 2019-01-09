@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    host: 192.168.1.241
+    host: 119.27.191.252
     port: 5672
     username: guest
     password: guest
@@ -38,7 +38,7 @@ zuul:
       path: /upms/**
       strip-prefix: true
       sensitiveHeaders:
-      serviceId: cloudplatform-upms-local
+      serviceId: cloudplatform-upms
 security:
   basic:
     enabled: false
@@ -46,10 +46,10 @@ security:
     client:
 #     client-id: webApp
 #     client-secret: webApp
-      access-token-uri: http://192.168.1.241:9091/auth/oauth/token    #网关的地址
-      user-authorization-uri: http://192.168.1.241:9091/auth/oauth/authorize
+      access-token-uri: http://119.27.191.252:19091/auth/oauth/token    #网关的地址
+      user-authorization-uri: http://119.27.191.252:19091/auth/oauth/authorize
     resource:
-      user-info-uri:  http://192.168.1.241:9092/user
+      user-info-uri:  http://119.27.191.252:19092/user
       prefer-token-info: false
 
 cloudplatform-service-local:
