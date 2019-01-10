@@ -45,9 +45,9 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
 
-management:   #actuator  去除认证
-  security:
-    enabled: false
+# management:   #actuator  去除认证
+#   security:
+#     enabled: false
 
 hystrix:
   command:
@@ -61,10 +61,10 @@ feign:
   hystrix:
     enabled: true
 
-security:
-  oauth2:
-    resource:
-      filter-order: 3  #必须加  OAuth2AuthenticationProcessingFilter  过滤器顺序
+# security:
+#   oauth2:
+#     resource:
+#       filter-order: 3  #必须加  OAuth2AuthenticationProcessingFilter  过滤器顺序
 
 logging:
   file: authlog.log
