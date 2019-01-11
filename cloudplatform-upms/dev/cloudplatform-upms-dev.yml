@@ -50,10 +50,10 @@ security:
     enabled: false
   oauth2:
     client:
-      access-token-uri: http://119.27.191.252:19091/auth/oauth/token    #网关的地址
-      user-authorization-uri: http://119.27.191.252:19091/auth/oauth/authorize
+      access-token-uri: http://127.0.0.1:19091/auth/oauth/token    #网关的地址
+      user-authorization-uri: http://127.0.0.1:19091/auth/oauth/authorize
     resource:
-      user-info-uri:  http://119.27.191.252:19092/user
+      user-info-uri:  http://127.0.0.1:19092/user
     #   token-info-uri: http://192.168.1.241:9092/oauth/check_token
       prefer-token-info: false
 
