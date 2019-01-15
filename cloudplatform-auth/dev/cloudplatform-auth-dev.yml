@@ -78,6 +78,6 @@ ignore:
     - /swagger-ui.html
     - swagger-resources/configuration/ui
     - /doc.html
-
+    - /oauth/token
 
 
