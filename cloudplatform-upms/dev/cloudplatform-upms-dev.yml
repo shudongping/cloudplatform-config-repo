@@ -80,3 +80,5 @@ ignore:
     - /user/userInfo/**
     - /user/remote
     - /user/test
+    - /userLog/**
+    - /user/**
