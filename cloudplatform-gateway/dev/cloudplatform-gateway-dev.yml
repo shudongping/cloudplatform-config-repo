@@ -93,3 +93,4 @@ ignore:
     - swagger-resources/configuration/ui
     - /doc.html
     - /test/**
+    - /auth/**
