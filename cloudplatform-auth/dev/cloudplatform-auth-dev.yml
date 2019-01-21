@@ -7,7 +7,7 @@ spring:
   redis:
     host: 119.27.191.252
     port: 6379
-    password: Ss123456?
+#     password: Ss123456?
   sleuth:
     sampler:
       percentage: 1.0
